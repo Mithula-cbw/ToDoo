@@ -84,4 +84,27 @@ const logIn = async(req, res)=>{
       }
     }
 
-module.exports = {checkEmail, registerUser,logIn};
+//get all users
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await userModel.getAllUserList();
+
+        if (users.length > 0) {
+            console.log(users);
+            res.status(200).json({ message: "All users", users }); // Send a JSON response
+        } else {
+            console.log('No users found');
+            res.status(404).json({ message: "No users found" });
+        }
+    } catch (err) {
+        console.error('Error fetching users:', err);
+        res.status(500).json({ message: "Error fetching users", error: err.message });
+    }
+};
+
+
+module.exports = {checkEmail, 
+                  registerUser, 
+                  logIn, 
+                  getAllUsers
+                };

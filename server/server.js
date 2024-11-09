@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use('/user', registerRoutes);
-app.get('/', (req, res)=>{
+app.get('/api', (req, res)=>{
     res.send("the backend is connected!");
 });
 

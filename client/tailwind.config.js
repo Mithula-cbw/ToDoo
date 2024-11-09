@@ -5,7 +5,11 @@ export default {
     './node_modules/@shadcn/ui/dist/**/*.{js,jsx,ts,tsx}',  // Add this line to include ShadCN UI components
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'], // Add Poppins as the default sans-serif font
+      },
+    },
   },
   plugins: [],
 }

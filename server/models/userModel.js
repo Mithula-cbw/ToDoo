@@ -1,5 +1,16 @@
 const db = require('../db');
 
+//get all users
+const getAllUserList = ()=>{
+    return new Promise((resolve, reject)=>{
+        db.query('SELECT email FROM users', (err, results)=>{
+            if(err) reject(err);
+            resolve(results);
+        })
+    });
+}
+
+
 //check if a user exist with a given email
 const checkEmailExists = (email) => {
     return new Promise((resolve, reject) => {
@@ -30,4 +41,8 @@ const registerNewUser = (email, passwordHash) =>{
     });
 }
 
-module.exports = {checkEmailExists,getUserByEmail,registerNewUser};
+module.exports = {checkEmailExists, 
+                  getUserByEmail, 
+                  registerNewUser, 
+                  getAllUserList
+                };
