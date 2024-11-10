@@ -8,7 +8,7 @@ const SignUp = ({ children , Title,subTitle}) => {
         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url(/signup.jpg)',
       }}
     >
-        <div className="w-[70%] h-[60%] flex flex-col sm:flex-row py-4 px-10">
+        <div className="w-[90%] h-[90%] sm:w-[70%] sm:h-[60%] flex flex-col sm:flex-row py-4 px-10">
             <div className="mt-10 w-full sm:w-[50%] sm:h-full flex flex-col justify-start items-start">
                 <h2 className="text-4xl sm:text-5xl  sm:w-20 text-wrap text-gray-50 font-semibold leading-tight font-poppins">{Title}</h2>
                 <p className="hidden sm:block mt-5 font-thin font-poppins text-gray-50">{subTitle}</p>
