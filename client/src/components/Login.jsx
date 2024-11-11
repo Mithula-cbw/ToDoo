@@ -49,6 +49,7 @@ const Login = () => {
           password,
         });
         
+        localStorage.setItem('authToken', response.data.token);
         console.log("Login successful:", response.data);
         setError(''); // Clear any previous errors
 

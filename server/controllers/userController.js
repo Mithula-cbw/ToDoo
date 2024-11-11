@@ -1,6 +1,11 @@
 
 const userModel = require('../models/userModel');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
 
 //helper function
 const checkIfEmailExists = async (email) => {
@@ -69,8 +74,12 @@ const logIn = async(req, res)=>{
           // Compare password with hashed password in the database
           const isPasswordCorrect = await bcrypt.compare(password, user.password);
             if (isPasswordCorrect) {
+
+                const payload = { userId : user.id, userEmail : user.email};
+                const token = jwt.sign(payload, JWT_SECRET, {expiresIn: '1h'});
+
                 console.log('Login successful', user);
-                return res.status(200).json({ message: 'Login successful', user });
+                return res.status(200).json({ token ,redirectUrl: `/user/${user.id}`});
             } else {
                 console.log('Incorrect password');
                 return res.status(400).json({ message: 'Incorrect password' });
@@ -102,9 +111,40 @@ const getAllUsers = async (req, res) => {
     }
 };
 
+// Get a user by email
+const getUser = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        // Make sure to call the correct method for fetching the user by email
+        const user = await userModel.getUserByEmail(email);
+
+        if (user) {
+            // If user is found, send the user data as a response
+            res.status(200).json({
+                message: "User found",
+                user: user
+            });
+        } else {
+            // If no user is found, send a 404 status with a message
+            res.status(404).json({
+                message: "User not found"
+            });
+        }
+    } catch (err) {
+        // If an error occurs, log it and send a 500 error response
+        console.error(err);
+        res.status(500).json({
+            message: "An error occurred while fetching the user",
+            error: err.message
+        });
+    }
+};
+
 
 module.exports = {checkEmail, 
                   registerUser, 
                   logIn, 
-                  getAllUsers
+                  getAllUsers,
+                  getUser
                 };

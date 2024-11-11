@@ -31,6 +31,16 @@ const getUserByEmail = (email)=>{
    });
 }
 
+//get a user by their id
+const getUserById = (id)=>{
+    return new Promise((resolve, reject)=>{
+     db.query('SELECT * FROM users WHERE id = ?', [id], (err, results)=>{
+         if(err) reject(err);
+         resolve(results[0]);
+     })
+    });
+ }
+
 //create a new user 
 const registerNewUser = (email, passwordHash) =>{
     return new Promise((resolve, reject)=>{
@@ -41,8 +51,10 @@ const registerNewUser = (email, passwordHash) =>{
     });
 }
 
+
 module.exports = {checkEmailExists, 
                   getUserByEmail, 
                   registerNewUser, 
-                  getAllUserList
+                  getAllUserList,
+                  getUserById
                 };

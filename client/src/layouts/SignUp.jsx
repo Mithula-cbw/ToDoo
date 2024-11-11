@@ -9,9 +9,9 @@ const SignUp = ({ children , Title,subTitle}) => {
       }}
     >
         <div className="w-[90%] h-[90%] sm:w-[70%] sm:h-[60%] flex flex-col sm:flex-row py-4 px-10">
-            <div className="mt-10 w-full sm:w-[50%] sm:h-full flex flex-col justify-start items-start">
-                <h2 className="text-4xl sm:text-5xl  sm:w-20 text-wrap text-gray-50 font-semibold leading-tight font-poppins">{Title}</h2>
-                <p className="hidden sm:block mt-5 font-thin font-poppins text-gray-50">{subTitle}</p>
+            <div className="mt-10 w-full sm:w-[50%] sm:h-full flex flex-col justify-center sm:justify-start items-center sm:items-start">
+                <h2 className="text-4xl sm:text-5xl sm:w-20 text-wrap text-gray-50 font-semibold leading-tight font-poppins">{Title}</h2>
+                <p className="mt-1 text-sm font-thin font-poppins text-gray-50">{subTitle}</p>
                 <div className="hidden mt-10 sm:flex space-x-5">
                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-gray-100">
