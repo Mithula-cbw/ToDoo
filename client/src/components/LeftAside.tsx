@@ -1,6 +1,7 @@
 import React from 'react'
 import AppLogo from './AppLogo'
 import AsideSection from '../components/LeftAsideSection'
+import TaskSection from './taskSection'
 
 const LeftAside: React.FC = () => {
   return(

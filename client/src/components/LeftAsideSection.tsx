@@ -30,8 +30,8 @@ const AsideSection: React.FC<AsideSectionProps> = ({ tooltip, title, children })
           </Tooltip>
         </TooltipProvider>
       </div>
-      {children? <></>: <p className='text-right p-1 text-[10px] text-gray-400'>-No {title} yet-</p>}
-      <div>{children}</div>
+      {children? <></>: <p className='text-right p-1 text-[10px] font-normal text-gray-400'>-No {title} yet-</p>}
+      <div className='mt-2 w-full'>{children}</div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './AppRoutes';
 import { ThemeProvider } from './contexts/themeProvider'
+import { DateProvider } from './contexts/dateProvider';
 import './index.css'
 
 
@@ -10,7 +11,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <AppRoutes />
+        <DateProvider>
+          <AppRoutes /> 
+        </DateProvider>             
       </ThemeProvider>      
     </BrowserRouter>
   </StrictMode>,

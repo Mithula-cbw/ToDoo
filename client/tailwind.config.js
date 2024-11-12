@@ -17,6 +17,7 @@ export default {
 			'gray-full': '#131313',
 			"gray-half": '#262626',
 			"gray-green": '#8D8F89',
+			"gray-light": '#A3A3A3',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
