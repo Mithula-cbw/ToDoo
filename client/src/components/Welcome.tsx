@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useDate } from "@/contexts/dateProvider"; // Assuming you have this context
+import { useDate } from "../contexts/dateProvider";
 import { Button } from "./ui/button";
 
-const Welcome: React.FC = () => {
+interface WelcomeProps {
+  handleOpenForm: () => void; // Function prop type for opening the task form
+}
+
+const Welcome: React.FC<WelcomeProps> = ({handleOpenForm}) => {
   const { selectedDate } = useDate();
   const currentDate = new Date(); // Get the current date
 
@@ -33,6 +37,7 @@ const Welcome: React.FC = () => {
         </div>
       </div>       
       <Button 
+      onClick={handleOpenForm}
     className="border bg-transparent text-gray-half dark:text-gray-200 border-primary-yellow hover:bg-primary-yellow hover:text-gray-950">
       Add a Task
     </Button>
