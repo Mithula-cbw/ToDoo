@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const registerRoutes = require('./routes/userRoutes');
 const taskRoutes = require('./routes/taskRoutes');
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors()); 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 app.use('/user', registerRoutes);
 app.use('/task' , taskRoutes);

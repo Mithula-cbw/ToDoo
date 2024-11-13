@@ -21,12 +21,29 @@ const createTask = async (req, res) => {
     }
 };
 
+const deleteTask = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const taskDel = await taskModel.deleteTask(id);
+  
+      if (taskDel.affectedRows > 0) { // Check if any rows were affected (i.e., a task was deleted)
+        res.status(200).json({ message: "Task deleted successfully" });
+      } else {
+        res.status(404).json({ message: "Task not found" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Failed to delete task", details: error.message });
+    }
+  };
+  
 //get all task of a user by their id
 const getTasksById = async(req, res) =>{
     const {id} = req.params;
+    const { date } = req.query;
 
     try{
-        const tasks = await taskModel.getTasksById(id);
+        const tasks = await taskModel.getTasksById(id, date);
 
         if(tasks.length > 0){
             res.status(200).json({tasks});
@@ -42,9 +59,33 @@ const getTasksById = async(req, res) =>{
     }
 }
 
+const changeStatus = async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.query;
+  
+    if (!status) {
+      return res.status(400).json({ message: "Status query parameter is required" });
+    }
+  
+    try {
+      const taskEdit = await taskModel.changeStatus(id, status);
+      
+      if (taskEdit.affectedRows > 0) { // Check if any rows were affected
+        return res.status(200).json({ message: "Task status updated successfully" });
+      } else {
+        return res.status(404).json({ message: "Task not found" });
+      }
+    } catch (error) {
+      console.error("Error updating task:", error); // Log the error for debugging
+      return res.status(500).json({ error: "Failed to update task", details: error.message });
+    }
+  };
+  
 
 
 module.exports = { 
                     createTask,
-                    getTasksById
+                    deleteTask,
+                    getTasksById,
+                    changeStatus
                 };

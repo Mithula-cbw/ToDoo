@@ -1,6 +1,6 @@
 import { Calendar } from "@/components/ui/calendar"
 import React from "react";
-import { useDate } from "@/contexts/DateProvider";
+import { useDate } from "@/contexts/dateProvider";
 
 const CalendarCom = () => {
     const [date, setDate] = React.useState<Date | undefined>(new Date())

@@ -16,6 +16,11 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/user': {
+        target: 'http://localhost:3635',
+        changeOrigin: true,
+        secure: false,
+      },
     }
 }
 })

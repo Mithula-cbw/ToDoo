@@ -5,7 +5,8 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast";
+import { useUser } from '@/contexts/userProvider';
 import {
   Popover,
   PopoverContent,
@@ -20,12 +21,16 @@ interface TaskFormProps {
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
+  const {user_id} = useUser();
   const { dispatch } = useTasks();
   const [title, setTitle] = useState<string>("");
-  const [date, setDate] = useState<Date>();
+  const [date, setDate] = useState<Date | undefined>(new Date());
   const [priority, setPriority] = useState<string>("Mid");
   const { toast } = useToast()
+  
+  const user_id_2 = localStorage.getItem('user_id');
 
+  const token = localStorage.getItem('authToken');
   // Handler for form submission
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -34,23 +39,26 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
       task: {
       title, 
       body: '',
-      due_time: date ? date.toISOString().slice(0, 19).replace('T', ' ') : "",
+      due_time: date ? date.toLocaleDateString('en-GB').split('/').reverse().join('-'): "",
       priority,
       status: 'pending',
-      user_id: 1
+      user_id: user_id || user_id_2
       }
     };
-
     const Task = {
       id: 1,
       title,
-      due_time: date ? date.toISOString().slice(0, 19).replace('T', ' ') : "",
+      due_time: date ? date.toLocaleDateString('en-GB').split('/').reverse().join('-'): "",
       priority
     };
   
     try {
       console.log(taskData);
-      const response = await axios.post("/task/create-task", taskData);
+      const response = await axios.post("/task/create-task", taskData , {
+        headers: {
+          Authorization: `Bearer ${token}`  // Attach the JWT token to the request headers
+        }
+      });
       dispatch({ type: "ADD_TASK", payload: Task});
       onClose(); 
       console.log("Task created:", response.data);

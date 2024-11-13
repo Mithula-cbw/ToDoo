@@ -79,7 +79,7 @@ const logIn = async(req, res)=>{
                 const token = jwt.sign(payload, JWT_SECRET, {expiresIn: '1h'});
 
                 console.log('Login successful', user);
-                return res.status(200).json({ token ,redirectUrl: `/user/${user.id}`});
+                return res.status(200).json({ token ,user_id: user.id});
             } else {
                 console.log('Incorrect password');
                 return res.status(400).json({ message: 'Incorrect password' });
