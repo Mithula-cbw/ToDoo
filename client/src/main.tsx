@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './AppRoutes';
 import { ThemeProvider } from './contexts/themeProvider'
 import { DateProvider } from './contexts/dateProvider';
+import { TaskProvider } from "@/contexts/taskProvider"; 
+import { Toaster } from "@/components/ui/toaster"
 import './index.css'
 
 
@@ -12,7 +14,10 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <DateProvider>
-          <AppRoutes /> 
+        <TaskProvider>
+            <AppRoutes />
+            <Toaster />
+          </TaskProvider> 
         </DateProvider>             
       </ThemeProvider>      
     </BrowserRouter>

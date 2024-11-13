@@ -9,15 +9,19 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-		fontFamily: {
-			poppins: ['poppins', 'sans-serif']
-		},
+  		breakpoints: {
+  			'my-lg': '1150px'
+  		},
+  		fontFamily: {
+  			poppins: ['poppins', 'sans-serif']
+  		},
   		colors: {
-			"primary-yellow" : '#F2C86B',
-			'gray-full': '#131313',
-			"gray-half": '#262626',
-			"gray-green": '#8D8F89',
-			"gray-light": '#A3A3A3',
+  			'primary-yellow': '#F2C86B',
+			'primary-yellow-low': '#F2C86B66',
+  			'gray-full': '#131313',
+  			'gray-half': '#262626',
+  			'gray-green': '#8D8F89',
+  			'gray-light': '#A3A3A3',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -58,6 +62,28 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },

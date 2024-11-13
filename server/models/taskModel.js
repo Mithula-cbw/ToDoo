@@ -14,6 +14,8 @@ const createTask = (task)=>{
     });
 }
 
+//delete a task
+
 //read all tasks of a user
 const getTasksById = (id) =>{
     return new Promise((resolve, reject)=>{

@@ -9,4 +9,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      '/task': {
+        target: 'http://localhost:3635',
+        changeOrigin: true,
+        secure: false,
+      },
+    }
+}
 })

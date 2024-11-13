@@ -5,6 +5,7 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { useToast } from "@/hooks/use-toast"
 import {
   Popover,
   PopoverContent,
@@ -12,35 +13,65 @@ import {
 } from "@/components/ui/popover";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useTasks } from "@/contexts/taskProvider";
 
 interface TaskFormProps {
   onClose: () => void;
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
+  const { dispatch } = useTasks();
   const [title, setTitle] = useState<string>("");
   const [date, setDate] = useState<Date>();
   const [priority, setPriority] = useState<string>("Mid");
+  const { toast } = useToast()
 
   // Handler for form submission
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+  
     const taskData = {
-      title,
-      due_time: date ? date.toISOString() : "",
+      task: {
+      title, 
+      body: '',
+      due_time: date ? date.toISOString().slice(0, 19).replace('T', ' ') : "",
       priority,
+      status: 'pending',
+      user_id: 1
+      }
     };
 
+    const Task = {
+      id: 1,
+      title,
+      due_time: date ? date.toISOString().slice(0, 19).replace('T', ' ') : "",
+      priority
+    };
+  
     try {
-      const response = await axios.post("/api/tasks", taskData);
-      console.log("Task added successfully:", response.data);
-      onClose(); // Close form after submission
+      console.log(taskData);
+      const response = await axios.post("/task/create-task", taskData);
+      dispatch({ type: "ADD_TASK", payload: Task});
+      onClose(); 
+      console.log("Task created:", response.data);
+      toast({
+        variant:"success",
+        title: "Task Added successfully",
+        description: `Pending for ${taskData.task.due_time}`,
+      })
+
     } catch (error) {
       console.error("Error adding task:", error);
+      onClose();
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: `${error}`
+      })
+      
     }
   };
-
+  
   return (
     <div className="fixed inset-0 flex items-center justify-center font-poppins bg-black bg-opacity-70">
       <div className="bg-white dark:bg-gray-half p-6 rounded-lg shadow-lg w-[90%] md:w-1/2 max-w-md flex flex-col gap-5">
@@ -54,7 +85,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          <div className="flex flex-col justify-start items-start gap-8 my-8 px-5">
+          <div className="flex flex-col justify-start items-start gap-8 my-8 px-1 md:px-5">
             <div>
               <label className="font-semibold mr-5 text-gray-300" htmlFor="">
                 Date:
@@ -83,7 +114,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
               </Popover>
             </div>
             <div className="flex flex-row justify-start items-center">
-              <label className="font-semibold mr-5 text-gray-300" htmlFor="">
+              <label className="font-semibold md:mr-5 text-gray-300" htmlFor="">
                 Priority:
               </label>
               <RadioGroup
@@ -107,7 +138,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
             </div>
           </div>
 
-          <div className="w-full flex flex-row justify-end items-center gap-4">
+          <div className="w-full flex flex-row justify-end items-center gap-2 md:gap-4">
             <button
               type="button"
               className="dark:bg-black text-white py-2 px-4 rounded mt-4"
@@ -119,7 +150,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
               type="submit"
               className="border border-primary-yellow dark:text-white hover:bg-primary-yellow hover:text-black text-white py-2 px-4 rounded mt-4 mr-2"
             >
-              Submit
+              Add
             </button>
           </div>
         </form>
