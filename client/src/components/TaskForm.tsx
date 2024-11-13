@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { useToast } from "@/hooks/use-toast";
 import { useUser } from '@/contexts/userProvider';
+import { useNavigate } from 'react-router-dom';
 import {
   Popover,
   PopoverContent,
@@ -27,6 +28,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [priority, setPriority] = useState<string>("Mid");
   const { toast } = useToast()
+  const navigate = useNavigate();
   
   const user_id_2 = localStorage.getItem('user_id');
 
@@ -48,6 +50,7 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
     const Task = {
       id: 1,
       title,
+      status: 'pending',
       due_time: date ? date.toLocaleDateString('en-GB').split('/').reverse().join('-'): "",
       priority
     };
@@ -67,6 +70,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
         title: "Task Added successfully",
         description: `Pending for ${taskData.task.due_time}`,
       })
+      if(response.status === 401){
+        navigate('/log-in');
+      }
 
     } catch (error) {
       console.error("Error adding task:", error);

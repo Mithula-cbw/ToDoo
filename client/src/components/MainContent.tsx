@@ -143,7 +143,7 @@ const MainContent: React.FC = () => {
               title={task.title}
               date={task.due_time}
               priority={task.priority}
-              status={task.status}
+              taskStatus={task.status}
               editTask={editTask}
               onDelete={() => deleteTask(task.id)} // Pass delete function as prop
             />
