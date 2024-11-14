@@ -1,10 +1,96 @@
 # ToDoo
 
-A To-Do list app with online user logins. 
+A To-Do list app with online user logins for personalized task management.
 
-Created using React, mySQL and Express.
+## Tech Stack
 
-Notes goes here:
+### Frontend
+
+<table style="width: 100%; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px;">
+  <tr>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="20" height="20" alt="React" />
+      <br />React
+    </td>
+    <td align="center" width="20">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+        width="20"
+        height="20"
+        alt="Tailwind"
+      />
+      <br />Tailwind
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="20" height="20" alt="HTML5" />
+      <br />HTML5
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="20" height="20" alt="TypeScript" />
+      <br />TypeScript
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="20" height="20" alt="" />
+      <br />Shadcn
+    </td>
+  </tr>
+</table>
+
+### Backend
+
+<table>
+  <tr>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="20" height="20" alt="Express" />
+      <br />Express
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="20" height="20" alt="Node.js" />
+      <br />Node.js
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="20" height="20" alt="MySQL" />
+      <br />MySQL
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="20" height="20" alt="JavaScript" />
+      <br />JavaScript
+    </td>
+  </tr>
+</table>
+
+
+### Tools
+
+<table>
+  <tr>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="20" height="20" alt="GitHub" />
+      <br />GitHub
+    </td>
+    <td align="center" width="20">
+      <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" width="20" height="20" alt="Postman" />
+      <br />Postman
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" width="20" height="20" alt="Figma" />
+      <br />Figma
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" width="20" height="20" alt="NPM" />
+      <br />NPM
+    </td>
+    <td align="center" width="20">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="20" height="20" alt="Visual Studio Code" />
+      <br />VS 
+    </td>
+    <td align="center" width="108">
+      <img src="https://vitejs.dev/logo.svg" width="20" height="20" alt="Vite" />
+      <br />Vite
+    </td>
+  </tr>
+</table>
+
 
 # Project Documentation
 
@@ -28,11 +114,30 @@ The register page is also responsive and optimized for a user-friendly experienc
 
 
 ### Screenshots
+**Login and Register**
 
-<div style="display: flex; gap: 100px; flex-wrap:wrap;">
-    <img src="./docs/login-mobile.png" alt="Login Page - Mobile View" width="200">
-    <img src="./docs/login-desktop.png" alt="Login Page - Desktop View" width="800">
-    <img src="./docs/login-failed-mobile.png" alt="Login Page - Error Handling" width="200">    
-    <img src="./docs/register-state.png" alt="Login Page - Error Handling" width="330">
+<div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap:wrap;">
+    <img src="./docs/login-desktop.png" alt="Login Page - Desktop View" width="800">   
+    <img src="./docs/register-state.png" alt="Login Page - Error Handling" width="800">
+</div>
+
+**Home Page**
+
+#### Desktop
+<div style="display: flex; gap: 5px; margin-bottom: 20px; flex-wrap:wrap;">
+    <img src="./docs/desktop-1.png" alt="Login Page - Desktop View" width="800">   
+    <img src="./docs/desktop-2.png" alt="Login Page - Desktop View" width="800">
+    <img src="./docs/desktop-3.png" alt="Login Page - Desktop View" width="800">  
+    <img src="./docs/desktop-4.png" alt="Login Page - Desktop View" width="800"> 
+</div>
+
+#### Mobile
+
+<div style="display: flex; gap: 5px; margin-bottom: 20px; flex-wrap:wrap;">
+    <img src="./docs/phone-1.png" alt="Login Page - Desktop View" width="100">   
+    <img src="./docs/phone-2.png" alt="Login Page - Desktop View" width="100">
+    <img src="./docs/phone-3.png" alt="Login Page - Desktop View" width="100">  
+    <img src="./docs/phone-4.png" alt="Login Page - Desktop View" width="100"> 
+    <img src="./docs/phone-5.png" alt="Login Page - Desktop View" width="100"> 
 </div>
 
