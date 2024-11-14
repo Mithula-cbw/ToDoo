@@ -2,6 +2,8 @@ import axios from "axios";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useUser } from "@/contexts/userProvider";
+import { Link } from 'react-router-dom';
+
 
 const Login: React.FC = () => {
   const { user_id, setUserId } = useUser();
@@ -101,8 +103,9 @@ const Login: React.FC = () => {
                     >
                         Login
                     </button>
-                    <div className="text-center mt-4 text-sm text-gray-50">Don't Have an Account?
-                        <a href="/register" className="px-3 text-sm text-blue-400 hover:underline">Register</a>
+                    <div className="text-center mt-4 text-sm text-gray-50">
+                        Don't Have an Account?
+                        <Link to="/register" className="px-3 text-sm text-blue-400 hover:underline">Register</Link>
                     </div>
                 </form>
             </div>

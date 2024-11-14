@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface RegisterProps {}
 
@@ -125,8 +125,8 @@ const Register: React.FC<RegisterProps> = () => {
             {loading ? 'Registering...' : 'Register'}
           </button>
           <div className="text-center mt-4 text-sm text-gray-50">
-            Already Have an Account? 
-            <a href="/log-in" className="px-3 text-sm text-blue-400 hover:underline">Log in</a>
+            Already Have an Account?
+            <Link to="/log-in" className="px-3 text-sm text-blue-400 hover:underline">Log in</Link>
           </div>
         </form>
       </div>

@@ -36,7 +36,6 @@ const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
   // Handler for form submission
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-  
     const taskData = {
       task: {
       title, 

@@ -9,7 +9,7 @@ const createTask = async (req, res) => {
         const newTask = await taskModel.createTask(task);
 
         if (newTask) {
-            res.status(200).send('Task added');
+            res.status(200).send(newTask);
             console.log('Task added:', newTask);
         } else {
             res.status(400).send("Couldn't create task");

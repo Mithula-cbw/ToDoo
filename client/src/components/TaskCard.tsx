@@ -38,6 +38,8 @@ const TaskCard: React.FC<taskCardProps> = ({
     priority = "medium";
   }
 
+  const formattedDate = new Date(date);
+
   const priorityColor = {
     high: "text-orange-500",
     medium: "text-orange-300",
@@ -78,13 +80,13 @@ const TaskCard: React.FC<taskCardProps> = ({
                 ></button>
                 <div className="flex flex-col md:gap-1">
                   <div
-                    className={`font-medium font-poppins text-sm md:text-lg w-full md:h-6 bg-gray-half rounded-md ${
+                    className={`font-medium font-poppins text-sm md:text-lg w-full md:h-6 dark:bg-gray-half rounded-md ${
                       status === "pending" ? "" : "text-decoration: line-through text-gray-500"
                     }`}
                   >
                     {title.slice(0, 1).toUpperCase() + title.slice(1)}
                   </div>
-                  <div className="text-xs text-gray-500">{date}</div>
+                  <div className="text-xs text-gray-500">{formattedDate.toLocaleDateString('en-GB').split('/').reverse().join('-')}</div>
                 </div>
               </div>
               <div className={`px-6 font-light ${priorityColor[priority]}`}>
