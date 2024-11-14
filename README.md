@@ -56,6 +56,7 @@ A To-Do list app with online user logins for personalized task management.
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="20" height="20" alt="JavaScript" />
       <br />JavaScript
     </td>
+    
   </tr>
 </table>
 
@@ -102,6 +103,11 @@ The login page is designed to be **fully responsive** for both desktop and mobil
 - **Responsiveness**: Adjusts layout and elements for mobile and desktop views.
 - **Error Handling**: Uses state to manage and display form errors in real time.
 - **Intuitive Design**: A simple and clean design that provides visual feedback for user actions.
+- **User Authentication with JWT**:
+  - Users can log in with their credentials and receive a secure **JWT**.
+  - The token is used for user authentication on subsequent requests, allowing seamless access to the app without re-authentication.
+  - Tokens have an expiration time and can be refreshed to keep the user logged in without requiring them to re-enter credentials.
+
 
 ### Register Page
 
