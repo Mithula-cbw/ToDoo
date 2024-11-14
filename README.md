@@ -141,3 +141,32 @@ The register page is also responsive and optimized for a user-friendly experienc
     <img src="./docs/phone-5.png" alt="Login Page - Desktop View" width="100"> 
 </div>
 
+**Other**
+
+<div style="display: flex; gap: 5px; margin-bottom: 20px; flex-wrap:wrap;">
+<div>Task card:</div>
+    <img src="./docs/part-1.png" alt="Login Page - Desktop View" width="800">  
+
+<div>Success Toasts:</div> 
+    <img src="./docs/part-2.png" alt="Login Page - Desktop View" width="800">
+<div>Finished Tasks:</div> 
+    <img src="./docs/part-3.png" alt="Login Page - Desktop View" width="800">   
+</div>
+
+## Future Updates
+
+Here are some exciting features I plan to add in the future:
+
+### 1. **Collections**
+- Users will be able to group their tasks into different collections or categories (e.g., Work, Personal, Study).
+- This feature will allow for better organization and management of tasks.
+
+### 2. **Notifications**
+- A notification system will alert users when tasks are due or approaching their deadline.
+- Users will be able to customize notification settings (e.g., frequency, time of notification).
+
+### 3. **Reminder System**
+- A reminder feature will allow users to set reminders for specific tasks, which can trigger notifications at chosen times.
+- The reminder system will include options for recurring tasks and one-time reminders.
+  
+These features will enhance the user experience and make managing tasks even more efficient!
