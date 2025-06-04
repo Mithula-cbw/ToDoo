@@ -2,6 +2,11 @@
 
 A To-Do list app with online user logins for personalized task management.
 
+## 🎥 Project Demo
+
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20Demo-YouTube-red?logo=youtube&style=for-the-badge)](https://youtu.be/0CtgzJ361Q4)
+
+
 ## Tech Stack
 
 ### Frontend
